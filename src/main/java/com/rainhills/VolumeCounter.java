@@ -43,10 +43,13 @@ class VolumeCounter {
         return prepareMax(heights,
                 heights.length - 1,
                 i -> i - 1,
-                i -> i > 0);
+                i -> i >= 0);
     }
 
     public int calcWaterAmount(int[] landscape) {
+        if (landscape == null) {
+            throw new IllegalArgumentException("landscape must not be null.");
+        }
         if (landscape.length == 0) {
             return 0;
         }

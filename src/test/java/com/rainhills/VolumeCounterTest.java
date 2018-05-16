@@ -46,6 +46,11 @@ public class VolumeCounterTest {
         new VolumeCounter().calcWaterAmount(new int[32001]);
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void testNullArgument() {
+        new VolumeCounter().calcWaterAmount(null);
+    }
+
     @Test
     public void testTrickyLandscape() {
         assertEquals(18L, new VolumeCounter().calcWaterAmount(new int[] {1, 4, 1, 2, 5, 2, 3, 0, 5, 4, 0, 3, 1}));
